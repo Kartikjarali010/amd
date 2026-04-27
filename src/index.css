@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-on-background font-inter antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at top left, rgba(16, 185, 129, 0.03) 0%, transparent 40%);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-manrope tracking-tight;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface-container border border-outline-variant/30 p-6 rounded-[20px] shadow-sm;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glass-sidebar {
+    @apply bg-surface border-r border-outline-variant/30 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-on-primary rounded-lg px-5 py-2.5 font-medium hover:bg-primary-container transition-colors duration-200 active:bg-primary-container/80 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply border border-outline-variant text-on-surface rounded-lg px-5 py-2.5 font-medium hover:bg-surface-bright hover:border-outline transition-colors duration-200 active:bg-surface-container shadow-sm;
+  }
+
+  .nav-item {
+    @apply flex items-center space-x-3 px-4 py-2.5 rounded-lg text-on-surface-variant font-medium hover:text-on-surface hover:bg-surface-bright/50 transition-colors duration-200 cursor-pointer;
+  }
+  
+  .nav-item.active {
+    @apply text-on-surface bg-surface-container border border-outline-variant/30 shadow-sm;
+  }
+  
+  .nav-item.active svg {
+    @apply text-primary;
+  }
+}
