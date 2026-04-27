@@ -1,16 +1,60 @@
-# React + Vite
+# NutriFlow Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance, and beautifully designed nutrition and health tracking dashboard built with React, Vite, and Tailwind CSS. 
 
-Currently, two official plugins are available:
+![NutriFlow Dashboard Overview](src/assets/hero.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Nutritional Dashboard**: An interactive overview tracking daily calories, macronutrient goals, and active minutes using dynamic Recharts visualizations.
+- **Smart AI Insights**: Context-aware widgets providing actionable health recommendations (e.g., remaining protein requirements).
+- **Interactive Diary**: A fully styled chronological log of your meals with detailed macro breakdowns.
+- **Health Metrics**: Track essential vitals such as resting heart rate, sleep duration, and hydration. Features a built-in interactive Water Tracker.
+- **Enterprise-Ready Dark Mode**: A professional, ultra-clean UI utilizing standardized surfaces, sharp emerald and pink accents, and subtle typography built on top of a custom Tailwind configuration.
+- **GCP Ready**: Includes a `Dockerfile` and `nginx.conf` fully optimized for a Google Cloud Run deployment.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Data Visualization**: Recharts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Local Development Setup
+
+1. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Start the Development Server**
+   ```bash
+   npm run dev
+   ```
+   The application will be available at `http://localhost:5173`.
+
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
+
+## Deployment (Google Cloud Run)
+
+This repository comes pre-configured with a multi-stage Docker build, utilizing an NGINX server to correctly route your Single Page Application (SPA).
+
+1. Authenticate with Google Cloud:
+   ```bash
+   gcloud auth login
+   ```
+2. Set your Project ID:
+   ```bash
+   gcloud config set project YOUR_PROJECT_ID
+   ```
+3. Deploy to Cloud Run:
+   ```bash
+   gcloud run deploy nutriflow-dashboard --source . --port 8080 --allow-unauthenticated
+   ```
+
+## Design System
+Refer to `DESIGN.md` in the root directory for a comprehensive breakdown of the project's color palette, typography guidelines, and core UI tokens.
